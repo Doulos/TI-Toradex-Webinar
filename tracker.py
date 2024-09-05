@@ -5,7 +5,7 @@ https://medium.com/@batuhansenerr/object-tracking-and-counting-for-emergency-sit
 import math
 
 
-class Tracker:
+class EuclideanDistTracker:
     def __init__(self):
         # Store the center points of the detected objects
         self.center_points = {}
@@ -28,8 +28,8 @@ class Tracker:
             for id, pt in self.center_points.items():
                 dist = math.hypot(cx - pt[0], cy - pt[1])
              
-            # Modify value of distance (currently set to 35) based on application
-                if dist < 35:
+            # Modify value of distance (currently set to 25) based on application
+                if dist < 25:
                     self.center_points[id] = (cx, cy)
                     objects_bbs_ids.append([x, y, w, h, id])
                     same_object_detected = True
